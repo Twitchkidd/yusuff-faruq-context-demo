@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-
-const Text = ({ theme }) => (
-  <h1 style={{ color: `${theme}`, textAlign: "center" }}>{theme}</h1>
-);
+import { Parent, ParentInButtonSequence } from "./components";
 
 const App = () => {
   const [theme, setTheme] = useState("blue");
@@ -17,12 +14,8 @@ const App = () => {
         justifyContent: "center",
         alignItems: "space-around"
       }}>
-      <Text theme={theme} />
-      <button
-        onClick={onClickHandler}
-        style={{ width: "200px", margin: "20px auto" }}>
-        Change theme
-      </button>
+      <Parent theme={theme} />
+      <ParentInButtonSequence setTheme={onClickHandler} />
     </div>
   );
 };
