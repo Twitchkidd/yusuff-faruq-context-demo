@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-const Text = ({ theme }) => <h1 style={{ color: `${theme}` }}>{theme}</h1>;
+const Text = ({ theme }) => (
+  <h1 style={{ color: `${theme}`, textAlign: "center" }}>{theme}</h1>
+);
 
 const App = () => {
   const [theme, setTheme] = useState("blue");
@@ -8,9 +10,19 @@ const App = () => {
     setTheme(theme === "blue" ? "red" : "blue");
   };
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "space-around"
+      }}>
       <Text theme={theme} />
-      <button onClick={onClickHandler}>Change theme</button>
+      <button
+        onClick={onClickHandler}
+        style={{ width: "200px", margin: "20px auto" }}>
+        Change theme
+      </button>
     </div>
   );
 };
