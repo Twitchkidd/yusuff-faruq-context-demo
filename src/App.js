@@ -1,22 +1,16 @@
 import React, { useState } from "react";
-import { Parent, ParentInButtonSequence } from "./components";
+import { Header, Main } from "./components";
+import { ThemeContext } from "./context";
 
 const App = () => {
-  const [theme, setTheme] = useState("blue");
-  const onClickHandler = () => {
-    setTheme(theme === "blue" ? "red" : "blue");
-  };
+  const themeHook = useState("light");
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "space-around"
-      }}>
-      <Parent theme={theme} />
-      <ParentInButtonSequence setTheme={onClickHandler} />
-    </div>
+    <ThemeContext.Provider value={themeHook}>
+      <div>
+        <Header />
+        <Main />
+      </div>
+    </ThemeContext.Provider>
   );
 };
 

@@ -1,2 +1,2 @@
-export * from "./Parent";
-export * from "./ParentInButtonSequence";
+export * from "./Header";
+export * from "./Main";
